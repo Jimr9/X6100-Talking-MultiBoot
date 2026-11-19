@@ -295,17 +295,18 @@ static void leave(int key) {
 			logmsg("the mark not written: %s", strerror(errno));
 		if (fd >= 0) { fsync(fd); close(fd); }
 	}
-	base_write(12, key == POWER_KEY ? 0x10000u : 0);   /* play mode off; or the base board's power-off */
+	/* Always switched off, never restarted: on these cards a restart from Linux (this menu's, and the systems' own
+	 * "reboot") never comes back up, the radio stays dark until its power key (2026-11-19, three times). The mark
+	 * survives: the next power-on starts that system at once. The base board cuts the power (the radio's own way:
+	 * register 12's power-off bit), Linux's power-off after it */
 	umount_donor();
 	if (log_fp) { fclose(log_fp); log_fp = NULL; }
 	sync();
 	umount("/boot");
 	sync();
-	if (key == POWER_KEY) {
-		sleep(1);
-		reboot(RB_POWER_OFF);
-	}
-	reboot(RB_AUTOBOOT);
+	base_write(12, 0x10000u);
+	sleep(1);
+	reboot(RB_POWER_OFF);
 	for (;;) pause();
 }
 
@@ -369,7 +370,7 @@ int main(void) {
 			key = 0;
 		}
 	}
-	screen("\n  Starting F%d ...\n", key);
+	screen("\n  F%d chosen. The radio switches off:\n  press POWER to start it.\n", key);
 	char start_clip[16];
 	snprintf(start_clip, sizeof start_clip, "START%d.WAV", key);
 	play(start_clip, 0, false);

@@ -2,7 +2,7 @@
 import io, os, sys, wave, array, paramiko
 ip = sys.argv[1]
 here = os.path.dirname(os.path.abspath(__file__))
-out = os.path.join(here, "TALK")
+out = os.path.join(os.path.dirname(here), "prompts")
 c = paramiko.SSHClient()
 c.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 c.connect(ip, username='root', key_filename=os.path.expanduser('~/.ssh/x6100_radio_ed25519'), timeout=15,
