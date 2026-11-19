@@ -10,8 +10,8 @@ Download: [Releases](https://github.com/Jimr9/X6100-Talking-MultiBoot/releases).
 
 | Key | Build | Speech |
 |-----|-------|--------|
-| F1 | [X6100 Accessibility](https://github.com/Jimr9/X6100-Accessibility-Testing) (OpenX6100 v1.2.0 with speech) | yes |
-| F2 | [OpenX6X00 Speech Access](https://github.com/Jimr9/OpenX6X00-Speech-Access) (OpenX6X00 v0.3.12 with speech) | yes |
+| F1 | [X6100 Accessibility](https://github.com/Jimr9/X6100-Accessibility-Testing) 1.2.0.1 (OpenX6100 v1.2.0 with speech, updates itself) | yes |
+| F2 | [OpenX6X00 Speech Access](https://github.com/Jimr9/OpenX6X00-Speech-Access) 0.3.12.1 (OpenX6X00 v0.3.12 with speech, updates itself) | yes |
 | F3 | [OpenX6100](https://github.com/OpenX6100/x6100_gui) v1.2.0, the original | no |
 | F4 | [OpenX6X00](https://github.com/Guru-RF/OpenX6X00) v0.3.12, the original | no |
 | F5 | The talking menu | it is the speech |
