@@ -373,7 +373,9 @@ int main(void) {
 	screen("\n  F%d chosen. The radio switches off:\n  press POWER to start it.\n", key);
 	char start_clip[16];
 	snprintf(start_clip, sizeof start_clip, "START%d.WAV", key);
-	play(start_clip, 0, false);
+	/* Any key during it (POWER, most likely) cuts the clip short: the choice is made, the switching off starts at once */
+	int k = play(start_clip, 0, true);
+	if (k) logmsg("key %d during the start clip: switching off now", k);
 	leave(key);
 	return 0;
 }
