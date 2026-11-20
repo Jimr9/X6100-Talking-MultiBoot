@@ -52,7 +52,7 @@ class Fat(_Fat):
             self.add_file("talkmenu.txt", (
                 "# The talking menu (F5): the system started when no key is pressed (1-4),\r\n"
                 "# seconds before it starts (0: waits for a key), the radio's volume while it talks (0-55)\r\n"
-                "default=1\r\nwait=30\r\nvolume=20\r\nheadphone=47\r\nself=%d\r\n" % TALK_KEY).encode())
+                "default=1\r\nwait=30\r\nvolume=40\r\nheadphone=47\r\nself=%d\r\n" % TALK_KEY).encode())
 
 
 C.Fat32Builder = Fat
